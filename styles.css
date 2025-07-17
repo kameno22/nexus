@@ -315,3 +315,32 @@ body, html {
   outline: none !important;
   border: none !important;
 }
+.discord-widget-wrapper {
+  position: fixed;
+  right: 24px;
+  bottom: 32px;
+  z-index: 900;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.45);
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(24, 26, 32, 0.7);
+  transition: box-shadow 0.2s;
+}
+
+.discord-widget-wrapper iframe {
+  display: block;
+  border: none;
+  border-radius: 18px;
+  background: transparent;
+}
+
+@media (max-width: 800px) {
+  .discord-widget-wrapper {
+    display: none; /* Hide widget on small screens for usability */
+  }
+}
+@media (min-width: 1200px) {
+  .game-grid {
+    margin-right: 280px; /* Widget width (260) + 20px gap */
+  }
+}
