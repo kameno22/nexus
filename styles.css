@@ -57,7 +57,7 @@ body::after {
   opacity: 0.18;
   pointer-events: none;
 }
-
+/* Navbar styles */
 .navbar {
   width: 100%;
   position: fixed;
@@ -69,7 +69,6 @@ body::after {
   z-index: 100;
   pointer-events: none;
 }
-
 .navbar-container {
   pointer-events: auto;
   display: flex;
@@ -79,12 +78,12 @@ body::after {
   background: var(--navbar-bg);
   box-shadow: var(--navbar-shadow);
   backdrop-filter: blur(24px) saturate(150%) brightness(1.07);
-  border-radius: 20px;
+  border-radius: 12px;
   padding: 0 40px 0 22px;
   min-height: 64px;
   width: 88vw;
   max-width: 1220px;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 .navbar-logo span {
   font-size: 1.25rem;
@@ -147,83 +146,180 @@ body::after {
 [data-theme='dark'] .navbar-search input:focus {
   background: rgba(45,65,102,1);
 }
-
 /* Theme button */
-.navbar-actions {
-  margin-left: 28px;
-  display: flex;
-  align-items: center;
-}
 .theme-btn {
   background: none;
   border: none;
   cursor: pointer;
   padding: 2px;
   border-radius: 8px;
-  transition: background 0.18s;
-  width: 38px;
-  height: 38px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 93px;
+  height: 39px;
+  transition: background 0.18s;
 }
-.theme-btn:hover {
-  background: rgba(0, 120, 212, 0.09);
+#theme-icon {
+  width: 93px;
+  height: 39px;
+  display: block;
+}
+.theme-btn:hover,
+.theme-btn:focus,
+.theme-btn:active {
+  background: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+  border: none !important;
+}
+/* Hamburger button */
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+  justify-content: center;
+  z-index: 2000;
+}
+.hamburger-bar {
+  width: 28px;
+  height: 3.2px;
+  background: var(--fluent-accent);
+  border-radius: 3px;
+  display: block;
+  transition: all 0.22s cubic-bezier(.4,2,.6,1);
 }
 
-@media (max-width: 1100px) {
-  .navbar-container {
-    width: 98vw;
-    max-width: 98vw;
-    padding: 0 12px;
-    gap: 10px;
+/* --- Mobile responsive/sidebar nav --- */
+@media (max-width: 900px) {
+  .hamburger {
+    display: flex;
+    position: absolute;
+    left: 10px;
+    top: 10px;
   }
-  .navbar-search input { width: 120px; min-width: 80px; }
-}
-@media (max-width: 700px) {
-  .navbar-container {
-    flex-direction: column;
-    align-items: stretch;
-    min-height: unset;
-    border-radius: 13px;
-    padding: 10px 8px;
-    width: 96vw;
-    max-width: 99vw;
+  .navbar-menu,
+  .navbar-search,
+  .theme-btn {
+    display: none !important;
   }
-  .navbar-logo { margin-bottom: 4px; }
-  .navbar-actions { margin-left: 0; }
-  .navbar-menu {
-    flex-wrap: wrap;
+  .navbar-container {
     justify-content: flex-start;
-    margin-bottom: 6px;
+    padding-left: 50px; /* space for hamburger */
   }
-  .navbar-search {
-    margin: 5px 0 0 0;
-    width: 100%;
+  /* SIDEBAR BLUR + slide in/out fix */
+  .mobile-sidebar {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background: var(--navbar-bg, rgba(255,255,255,0.87));
+    backdrop-filter: blur(18px) saturate(150%) !important;
+    box-shadow: 2px 0 34px rgba(0,0,0,0.20);
+    border-radius: 0 12px 12px 0;
+    z-index: 2100;
+    flex-direction: column;
+    padding: 26px 20px 20px 18px;
+    transition: transform 0.28s cubic-bezier(.5,1,.3,1);
+    transform: translateX(-110%);
+    overflow: hidden;
   }
-  .navbar-search input { width: 100%; max-width: 100%; }
+  .mobile-sidebar.open {
+    transform: translateX(0);
+  }
+  .sidebar-overlay.active {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 2090;
+    background: rgba(32,36,45,0.25);
+    backdrop-filter: blur(1.7px);
+    cursor: pointer;
+  }
+  .sidebar-overlay {
+    display: none;
+  }
+}
+@media (min-width: 901px) {
+  .mobile-sidebar, .sidebar-overlay {
+    display: none !important;
+  }
 }
 
-/* BODY SPACING: Push content below navbar */
-body, html {
-  scroll-padding-top: 98px;
+/* SIDEBAR links */
+.mobile-sidebar nav ul {
+  margin: 0; padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
+.mobile-sidebar nav li a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-size: 1.09rem;
+  font-weight: 600;
+  border-radius: 7px;
+  padding: 8px 8px 8px 0;
+  display: block;
+  transition: background .17s;
+}
+.mobile-sidebar nav li a:hover,
+.mobile-sidebar nav li a:focus {
+  background: var(--fluent-accent);
+  color: #fff;
+}
+/* BODY SPACING: Push content below navbar */
+body, html { scroll-padding-top: 98px; }
 .game-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 32px;
-  padding: 98px 6vw 32px 6vw;
+  padding: 100px 6vw 32px 15vw;
   max-width: 1200px;
-  margin: auto;
+  margin: 0 auto;
 }
 
+/* Widget padding at large screens, but centered cards */
+@media (min-width: 1200px) {
+  .game-grid {
+    padding-right: 280px; /* Widget width + gap */
+  }
+}
+@media (max-width: 900px) {
+  .game-grid {
+    padding-right: 3vw !important;
+    padding-left: 3vw !important;
+  }
+  .discord-widget-wrapper {
+    display: none;
+  }
+}
+
+/* Card styles */
 .game-card {
   background: var(--card-bg);
   border-radius: 16px;
   box-shadow: 0 4px 32px rgba(0,0,0,0.13);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  height: 100%;
+  position: relative;
   overflow: hidden;
   transition: transform 0.19s, box-shadow 0.19s, background 0.17s;
   backdrop-filter: blur(8px) saturate(135%);
+}
+@media (max-width: 700px) {
+  .game-card { min-height: 320px; }
 }
 .game-card:hover {
   background: var(--card-hover);
@@ -242,7 +338,10 @@ body, html {
   filter: brightness(0.92) contrast(1.12);
 }
 .game-info {
-  padding: 22px 16px 16px;
+  flex: 1 1 auto;
+  padding: 22px 16px 0 16px;
+  display: flex;
+  flex-direction: column;
 }
 .game-title {
   color: var(--text-main);
@@ -265,7 +364,8 @@ body, html {
 .game-actions {
   display: flex;
   justify-content: flex-end;
-  margin-top: 12px;
+  align-items: flex-end;
+  padding: 0 16px 18px 16px;
 }
 .fluent-btn {
   background: var(--fluent-accent);
@@ -282,65 +382,29 @@ body, html {
 .fluent-btn:hover {
   background: #005fa3;
 }
-@media (max-width: 700px) {
-  .game-grid { padding: 98px 5vw 22px 5vw; }
-}
-
-.theme-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 2px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 93px;
-  height: 39px;
-  transition: background 0.18s;
-}
-
-/* There is no .theme-btn:hover rule here—hover effect is fully removed */
-
-#theme-icon {
-  width: 93px;
-  height: 39px;
-  display: block;
-}
-.theme-btn:hover,
-.theme-btn:focus,
-.theme-btn:active {
-  background: none !important;
-  box-shadow: none !important;
-  outline: none !important;
-  border: none !important;
-}
+/* Discord widget floating on the right */
 .discord-widget-wrapper {
   position: fixed;
   right: 24px;
   bottom: 32px;
+  top: 285px;
   z-index: 900;
   box-shadow: 0 4px 20px rgba(0,0,0,0.45);
   border-radius: 18px;
   overflow: hidden;
   background: rgba(24, 26, 32, 0.7);
   transition: box-shadow 0.2s;
+  width: 260px;
+  height: 300px;
 }
-
 .discord-widget-wrapper iframe {
   display: block;
+  width: 100%;
+  height: 100%;
   border: none;
   border-radius: 18px;
   background: transparent;
 }
-
 @media (max-width: 800px) {
-  .discord-widget-wrapper {
-    display: none; /* Hide widget on small screens for usability */
-  }
-}
-@media (min-width: 1200px) {
-  .game-grid {
-    margin-right: 280px; /* Widget width (260) + 20px gap */
-  }
+  .discord-widget-wrapper { display: none; }
 }
