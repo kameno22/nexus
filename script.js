@@ -41,3 +41,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+// Mobile theme toggle button handler
+const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+const themeIconMobile = document.getElementById('theme-icon-mobile');
+if(themeToggleMobile && themeIconMobile) {
+  themeToggleMobile.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('ng-theme', newTheme);
+    themeIconMobile.src = newTheme === 'dark'
+      ? 'https://raw.githubusercontent.com/kameno22/nexus/refs/heads/main/resources/theme-dark.png'
+      : 'https://raw.githubusercontent.com/kameno22/nexus/refs/heads/main/resources/theme-light.png';
+  });
+}
+

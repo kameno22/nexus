@@ -610,3 +610,55 @@ body, html { scroll-padding-top: 98px; }
   color: #005ea6;
   text-decoration: underline;
 }
+[data-theme='dark'] .game-desc,
+[data-theme='dark'] .game-main-content,
+[data-theme='dark'] .install-steps,
+[data-theme='dark'] .game-sidebar,
+[data-theme='dark'] .sysreq-box,
+[data-theme='dark'] .sysreq-box ul li,
+[data-theme='dark'] .game-version, 
+[data-theme='dark'] .section-title {
+  color: var(--text-main) !important;
+}
+
+[data-theme='dark'] .sysreq-box h3,
+[data-theme='dark'] .section-title,
+[data-theme='dark'] .game-title {
+  color: var(--fluent-accent) !important;
+}
+
+[data-theme='dark'] .game-sidebar,
+[data-theme='dark'] .sysreq-box {
+  background: rgba(36, 42, 56, 0.91) !important;
+}
+
+[data-theme='dark'] .fluent-btn.big-download-btn {
+  background: var(--fluent-accent) !important;
+  color: #fff !important;
+}
+[data-theme='dark'] .game-desc a,
+[data-theme='dark'] .sysreq-box ul li a,
+[data-theme='dark'] .install-steps a {
+  color: #63b3ff !important;
+}
+/* Show mobile theme toggle and hide desktop toggle in mobile view */
+@media (max-width: 900px) {
+  .theme-toggle-mobile {
+    display: flex !important;
+    position: absolute;
+    right: 50px;   /* adjust as needed; can be '10px' if you want it very right */
+    top: 10px;
+    z-index: 1100;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .theme-toggle-mobile img {
+    width: 32px;
+    height: 32px;
+  }
+  .theme-btn {
+    display: none !important; /* hides desktop toggle on mobile */
+  }
+}
