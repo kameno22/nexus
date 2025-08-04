@@ -641,12 +641,15 @@ body, html { scroll-padding-top: 98px; }
 [data-theme='dark'] .install-steps a {
   color: #63b3ff !important;
 }
-/* Show mobile theme toggle and hide desktop toggle in mobile view */
+.theme-toggle-mobile {
+  display: none; /* Hide by default on desktop */
+}
+
 @media (max-width: 900px) {
   .theme-toggle-mobile {
     display: flex !important;
     position: absolute;
-    right: 50px;   /* adjust as needed; can be '10px' if you want it very right */
+    right: 50px;  /* Adjust as needed to position near hamburger */
     top: 10px;
     z-index: 1100;
     cursor: pointer;
@@ -658,7 +661,12 @@ body, html { scroll-padding-top: 98px; }
     width: 32px;
     height: 32px;
   }
+  
+  /* Hide the desktop theme toggle, if present */
   .theme-btn {
-    display: none !important; /* hides desktop toggle on mobile */
+    display: none !important;
   }
 }
+
+
+
