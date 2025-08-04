@@ -408,3 +408,192 @@ body, html { scroll-padding-top: 98px; }
 @media (max-width: 800px) {
   .discord-widget-wrapper { display: none; }
 }
+/* Game detail page styles */
+.game-detail-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 130px 6vw 60px 6vw; /* top padding to clear fixed navbar */
+  color: var(--text-main);
+}
+
+/* Hero banner */
+.game-hero {
+  position: relative;
+  min-height: 350px;
+  border-radius: 24px 24px 0 0;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 14px 50px rgb(0 0 0 / 0.3);
+}
+
+.game-hero-overlay {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(36, 42, 56, 0.23) 0%,
+    rgba(50, 70, 90, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+.game-hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  gap: 36px;
+  padding: 28px 6vw 28px 6vw;
+  width: 100%;
+}
+
+.game-cover {
+  width: 170px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 32px rgb(10 30 50 / 0.3);
+  border: 3px solid #fffafa;
+  background: #fff;
+}
+
+.game-hero-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.game-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--fluent-accent);
+  letter-spacing: 1.2px;
+  margin: 0;
+}
+
+.game-version {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: #ffffff;
+  letter-spacing: 0.4px;
+  margin-bottom: 12px;
+}
+
+.fluent-btn.big-download-btn {
+  background-color: var(--fluent-accent);
+  color: white;
+  border-radius: 14px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 16px 44px;
+  user-select: none;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 36px rgb(37 126 179 / 20%);
+  transition: background-color 0.22s;
+  text-align: center;
+  width: max-content;
+  white-space: nowrap;
+}
+.fluent-btn.big-download-btn:hover {
+  background-color: #005ea6;
+}
+
+/* Content grid */
+.game-detail-grid {
+  display: flex;
+  gap: 52px;
+  margin-top: 44px;
+  min-height: 420px;
+}
+
+/* Left section */
+.game-main-content {
+  flex-grow: 1;
+  min-width: 0;
+}
+.section-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  color: var(--fluent-accent);
+  text-transform: uppercase;
+}
+.game-desc {
+  font-size: 1.07rem;
+  line-height: 1.55;
+  color: var(--text-alt);
+  margin-bottom: 38px;
+}
+.install-steps {
+  margin-bottom: 36px;
+  font-size: 1.07rem;
+  padding-left: 22px;
+  color: var(--text-alt);
+  list-style: decimal outside;
+}
+.install-steps li {
+  margin-bottom: 10px;
+}
+
+/* Sidebar */
+.game-sidebar {
+  width: 300px;
+  min-width: 240px;
+  background: rgba(235, 240, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 0 26px 3px #b0d7ff44;
+  padding: 24px 26px 30px;
+  color: var(--text-main);
+}
+
+.sysreq-box h3 {
+  font-weight: 700;
+  font-size: 1.18rem;
+  color: var(--fluent-accent);
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+.sysreq-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+.sysreq-box ul li {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+.sysreq-box ul li b {
+  font-weight: 600;
+  color: var(--text-alt);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .game-detail-main {
+    padding: 100px 3vw 48px 3vw;
+  }
+  .game-detail-grid {
+    flex-direction: column;
+    gap: 34px;
+  }
+  .game-sidebar {
+    width: 100%;
+    min-width: auto;
+    margin: 0;
+  }
+  .game-hero-content {
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-start;
+  }
+  .game-cover {
+    width: 150px;
+    height: 210px;
+  }
+}

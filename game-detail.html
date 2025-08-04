@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Marvel’s Spider-Man 2 - NexusGames</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Segoe+UI:400,600,700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo"><span>NexusGames</span></div>
+      <button
+        class="hamburger"
+        id="hamburger-btn"
+        aria-label="Open menu"
+        aria-expanded="false"
+      >
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+        <span class="hamburger-bar"></span>
+      </button>
+      <ul class="navbar-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Games</a></li>
+        <li><a href="#">Genres</a></li>
+        <li><a href="#">Request</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="navbar-search">
+        <input type="text" placeholder="Search games..." />
+      </div>
+      <button id="theme-toggle" aria-label="Switch theme" class="theme-btn">
+        <img
+          id="theme-icon"
+          src="https://raw.githubusercontent.com/kameno22/nexus/refs/heads/main/resources/theme-light.png"
+          alt="Switch theme"
+          style="width: 93px; height: 39px; display: block"
+        />
+      </button>
+    </div>
+  </nav>
+
+  <aside class="mobile-sidebar" id="mobile-sidebar">
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Games</a></li>
+        <li><a href="#">Genres</a></li>
+        <li><a href="#">Request</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <main class="game-detail-main">
+    <!-- Game Hero Section -->
+    <section
+      class="game-hero"
+      style="
+        background-image: url(
+          'https://raw.githubusercontent.com/kameno22/nexus/refs/heads/main/resources/spiderman2-cover.jpg'
+        );
+      "
+    >
+      <div class="game-hero-overlay"></div>
+      <div class="game-hero-content">
+        <img
+          class="game-cover"
+          src="https://raw.githubusercontent.com/kameno22/nexus/refs/heads/main/resources/spiderman2-cover.jpg"
+          alt="Marvel’s Spider-Man 2 Cover"
+        />
+        <div class="game-hero-meta">
+          <h1 class="game-title">Marvel’s Spider-Man 2</h1>
+          <div class="game-version">v1.401.1.0</div>
+          <a href="#download-section" class="fluent-btn big-download-btn"
+            >Download Now</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Game Detail Grid -->
+    <div class="game-detail-grid">
+      <!-- Left: Main Content -->
+      <section class="game-main-content">
+        <h2 class="section-title">About Marvel’s Spider-Man 2</h2>
+        <div class="game-desc">
+          <p>
+            Marvel’s Spider-Man 2 is a thrilling action-adventure game developed by
+            Insomniac Games and published by Sony Interactive Entertainment. It
+            follows Peter Parker and Miles Morales as they battle Kraven the Hunter
+            in the sprawling, beautiful New York City.
+          </p>
+          <p>
+            The game features new abilities, costumes, a huge open world, and an
+            engaging storyline for Windows players in 2025.
+          </p>
+        </div>
+
+        <h3 class="section-title">How to Download &amp; Install</h3>
+        <ol class="install-steps">
+          <li>Click the <b>Download Now</b> button below.</li>
+          <li>Wait for the game files to download and extract using WinRAR or 7Zip.</li>
+          <li>Open the extracted folder and run the game’s executable as administrator.</li>
+          <li>If missing DLL errors occur, install all packages from the _CommonRedist folder.</li>
+        </ol>
+        <div id="download-section">
+          <a href="#" class="fluent-btn big-download-btn">Download Now</a>
+        </div>
+      </section>
+
+      <!-- Right Sidebar: System Requirements -->
+      <aside class="game-sidebar">
+        <div class="sysreq-box">
+          <h3>System Requirements</h3>
+          <ul>
+            <li><b>OS:</b> Windows 10 or Newer</li>
+            <li><b>Processor:</b> Intel Core i5-8400 or AMD Ryzen 5 3600</li>
+            <li><b>Memory:</b> 16 GB RAM</li>
+            <li><b>Graphics:</b> NVIDIA RTX 3060 or AMD RX 5700</li>
+            <li><b>Storage:</b> 140 GB available space</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
