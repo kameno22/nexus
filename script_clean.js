@@ -37,61 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = '';
     });
   }
-
-  // New screenshot carousel logic
-  const mainScreenshot = document.getElementById('main-screenshot');
-  const thumbnails = document.querySelectorAll('.thumbnail');
-  const thumbCarousel = document.getElementById('thumbnail-carousel');
-  const navLeft = document.getElementById('thumb-nav-left');
-  const navRight = document.getElementById('thumb-nav-right');
-
-  thumbnails.forEach((thumb, index) => {
-    thumb.addEventListener('click', () => {
-      // Update main screenshot src and alt
-      mainScreenshot.src = thumb.src;
-      mainScreenshot.alt = thumb.alt;
-
-      // Update active thumbnail highlight
-      thumbnails.forEach(t => t.classList.remove('active'));
-      thumb.classList.add('active');
-    });
-  });
-
-  navLeft.addEventListener('click', (event) => {
-    event.preventDefault();
-    console.log('Left arrow clicked');
-    if (thumbCarousel) {
-      const activeIndex = Array.from(thumbnails).findIndex(t => t.classList.contains('active'));
-      if (activeIndex > 0) {
-        const newIndex = activeIndex - 1;
-        const newThumb = thumbnails[newIndex];
-        mainScreenshot.src = newThumb.src;
-        mainScreenshot.alt = newThumb.alt;
-        thumbnails.forEach(t => t.classList.remove('active'));
-        newThumb.classList.add('active');
-        newThumb.scrollIntoView({ behavior: 'smooth', inline: 'center' });
-      }
-    }
-  });
-
-  navRight.addEventListener('click', (event) => {
-    event.preventDefault();
-    console.log('Right arrow clicked');
-    if (thumbCarousel) {
-      const activeIndex = Array.from(thumbnails).findIndex(t => t.classList.contains('active'));
-      if (activeIndex < thumbnails.length - 1) {
-        const newIndex = activeIndex + 1;
-        const newThumb = thumbnails[newIndex];
-        mainScreenshot.src = newThumb.src;
-        mainScreenshot.alt = newThumb.alt;
-        thumbnails.forEach(t => t.classList.remove('active'));
-        newThumb.classList.add('active');
-        newThumb.scrollIntoView({ behavior: 'smooth', inline: 'center' });
-      }
-    }
-  });
 });
-// Mobile theme toggle button handler
+
 const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 const themeIconMobile = document.getElementById('theme-icon-mobile');
 if(themeToggleMobile && themeIconMobile) {
@@ -113,13 +60,10 @@ document.querySelectorAll('.carousel-arrow').forEach(btn => {
   });
 });
 document.addEventListener('DOMContentLoaded', function() {
-  // ... (your existing code)
-
-  // Screenshot Lightbox Modal
   const modal = document.getElementById('shot-modal');
   const modalImg = document.getElementById('shot-modal-img');
   const modalClose = document.getElementById('shot-modal-close');
-  // Target all images in your screenshots carousel
+  
   document.querySelectorAll('.screenshots-carousel img').forEach(img => {
     img.style.cursor = 'zoom-in';
     img.addEventListener('click', () => {
@@ -130,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.body.style.overflow = 'hidden';
     });
   });
-  // Close modal on close click, overlay click, or Escape key
+  
   function closeModal() {
     modal.classList.remove('open');
     modalImg.src = '';
@@ -144,4 +88,3 @@ document.addEventListener('DOMContentLoaded', function() {
     if(modal.classList.contains('open') && (e.key === 'Escape' || e.key === ' ')) closeModal();
   });
 });
-
