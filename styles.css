@@ -371,11 +371,11 @@ body, html { scroll-padding-top: 98px; }
   display:block;
   background: var(--fluent-accent);
   padding: 12px 0;
-  width: calc(100%); 
+  width: 100%; 
   border: none;
   color: #fff;
   margin: 0 auto;
-  border-radius: 8px;
+  border-radius: 15px;
   padding: 12px 0;
   font-size: 1.1rem;
   font-weight: 700;
@@ -385,7 +385,6 @@ body, html { scroll-padding-top: 98px; }
 }
 .fluent-btn:hover {
   background: #005fa3;
-   box-shadow: 0 6px 26px rgba(0, 94, 166, 0.48);
 }
 /* Discord widget floating on the right */
 .discord-widget-wrapper {
