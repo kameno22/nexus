@@ -1,7 +1,7 @@
 :root {
   /* Light Mode */
   --mica-tint: rgba(245, 245, 250, 0.63);
-  --mica-noise: url('https://i.imgu.com/3zDuJQb.png');
+  --mica-noise: url('https://www.transparenttextures.com/patterns/noisy.png');
   --mica-fallback: #f7f7fc;
   --fluent-accent: #0078d4;
   --card-bg: rgba(255,255,255,0.77);
@@ -368,19 +368,24 @@ body, html { scroll-padding-top: 98px; }
   padding: 0 16px 18px 16px;
 }
 .fluent-btn {
+  display:block;
   background: var(--fluent-accent);
+  padding: 12px 0;
+  width: calc(100%); 
   border: none;
   color: #fff;
+  margin: 0 auto;
   border-radius: 8px;
-  padding: 8px 22px;
-  font-size: 1.05rem;
-  font-weight: 600;
+  padding: 12px 0;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background .16s, box-shadow .18s;
+  transition: background-color 0.22s, box-shadow 0.22s;
   box-shadow: 0 2px 12px #0062be33;
 }
 .fluent-btn:hover {
   background: #005fa3;
+   box-shadow: 0 6px 26px rgba(0, 94, 166, 0.48);
 }
 /* Discord widget floating on the right */
 .discord-widget-wrapper {
@@ -665,6 +670,92 @@ body, html { scroll-padding-top: 98px; }
   /* Hide the desktop theme toggle, if present */
   .theme-btn {
     display: none !important;
+  }
+}
+.screenshots-carousel {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+}
+.carousel-slide {
+  flex: 0 0 350px;
+  scroll-snap-align: start;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #202a47;
+  box-shadow: 0 2px 9px rgba(50,50,70,0.08);
+}
+.carousel-slide img {
+  width: 100%;
+  display: block;
+  height: 200px; /* or auto for variable */
+  object-fit: cover;
+}
+.shot-modal {
+  display: none;
+  position: fixed; z-index: 2222;
+  left: 0; top: 0; width: 100vw; height: 100vh;
+  background: rgba(20,30,50,0.82);
+  align-items: center; justify-content: center;
+  transition: opacity .22s;
+  cursor: zoom-out;
+}
+.shot-modal.open { display: flex; }
+.shot-modal img {
+  max-width: 94vw; max-height: 88vh;
+  border-radius: 18px;
+  box-shadow: 0 8px 42px #141e3266;
+  background: #fff;
+  object-fit: contain;
+}
+.shot-modal-close {
+  position: absolute; top: 23px; right: 38px;
+  font-size: 2.7rem; color: #fff;
+  font-weight: 900; cursor: pointer;
+  text-shadow: 0 2px 9px #223c4a45;
+  z-index: 10;
+  transition: color .13s;
+  user-select: none;
+}
+.shot-modal-close:hover { color: #ff1a4a; }
+.shot-modal:focus { outline: 2px solid var(--fluent-accent); }
+@media (max-width: 600px) {
+  .shot-modal img { max-width: 99vw; max-height: 75vw; }
+  .shot-modal-close { font-size: 2.1rem; right: 18px; top: 12px; }
+}
+#shot-modal img {
+  max-width: 94vw;
+  max-height: 88vh;
+  min-width: 320px;    /* Ensures smaller images scale up to at least this size */
+  min-height: 180px;   /* Ensures vertical fill for short images */
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 8px 42px #141e3266;
+  background: #fff;    /* White behind images for a clean look */
+  display: block;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  #shot-modal img {
+    max-width: 99vw;
+    max-height: 75vw;
+    min-width: auto;
+    min-height: auto;
+  }
+}
+#theme-icon {
+  width: 93px;          /* set desired max width */
+  height: auto;         /* scale height proportionally */
+  max-width: 100%;      /* prevent overflow on small containers */
+  display: block;       /* remove inline gaps */
+  object-fit: contain;  /* useful if you use background images or SVG */
+}
+@media (max-width: 480px) {
+  #theme-icon {
+    width: 70px;  /* smaller width on narrow viewports */
   }
 }
 

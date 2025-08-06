@@ -1,0 +1,9 @@
+redirects:
+  - source: /.well-known/*  # leave this if it's empty or for certs
+    destination: /.well-known/:splat
+    status: 200
+
+  # Remove .html - Rewrite /something to /something.html
+  - source: /([^.]+)$
+    destination: /$1.html
+    status: 200

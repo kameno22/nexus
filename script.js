@@ -55,4 +55,43 @@ if(themeToggleMobile && themeIconMobile) {
       : 'https://raw.githubusercontent.com/kameno22/nexus/refs/heads/main/resources/theme-light.png';
   });
 }
+const shotsCarousel = document.getElementById('shots-carousel');
+document.querySelectorAll('.carousel-arrow').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const dir = btn.classList.contains('left') ? -1 : 1;
+    shotsCarousel.scrollBy({ left: dir * 350, behavior: 'smooth' });
+  });
+});
+document.addEventListener('DOMContentLoaded', function() {
+  // ... (your existing code)
+
+  // Screenshot Lightbox Modal
+  const modal = document.getElementById('shot-modal');
+  const modalImg = document.getElementById('shot-modal-img');
+  const modalClose = document.getElementById('shot-modal-close');
+  // Target all images in your screenshots carousel
+  document.querySelectorAll('.screenshots-carousel img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.addEventListener('click', () => {
+      modal.classList.add('open');
+      modalImg.src = img.src;
+      modalImg.alt = img.alt || '';
+      modal.focus();
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  // Close modal on close click, overlay click, or Escape key
+  function closeModal() {
+    modal.classList.remove('open');
+    modalImg.src = '';
+    document.body.style.overflow = '';
+  }
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) {
+    if(e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if(modal.classList.contains('open') && (e.key === 'Escape' || e.key === ' ')) closeModal();
+  });
+});
 

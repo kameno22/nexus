@@ -68,26 +68,17 @@
   </aside>
   <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
-  <main class="game-detail-main">
-    <!-- Game Hero Section -->
-    <section
-      class="game-hero"
-      style="
-        background-image: url(
-          'https://raw.githubusercontent.com/kameno22/nexus/refs/heads/main/resources/spiderman2-cover.jpg'
-        );
-      "
-    >
-      <div class="game-hero-overlay"></div>
-      <div class="game-hero-content">
-        <img
-          class="game-cover"
-          src="https://raw.githubusercontent.com/kameno22/nexus/refs/heads/main/resources/spiderman2-cover.jpg"
-          alt="Marvel’s Spider-Man 2 Cover"
-        />
-        <div class="game-hero-meta">
-          <h1 class="game-title">Marvel’s Spider-Man 2</h1>
-          <div class="game-version">v1.401.1.0</div>
+<main class="game-details-modern">
+  <!-- HERO PANEL -->
+  <section class="game-hero-modern" style="background-image:url('YOUR_BANNER_BG.jpg');">
+    <div class="game-hero-gradient"></div>
+    <div class="game-hero-flex">
+      <img class="game-cover-modern" src="https://upload.wikimedia.org/wikipedia/en/e/e1/Spider-Man_PS4_cover.jpg" alt="Marvel’s Spider-Man 2 Cover" />
+      <div class="game-meta-modern">
+        <h1 class="game-title-modern">Marvel’s Spider-Man 2</h1>
+        <div class="game-version">v1.401.1.0</div>
+        <div class="game-publisher">Sony Interactive Entertainment</div>
+        <div class="game-meta-tags">
           <a href="#download-section" class="fluent-btn big-download-btn"
             >Download Now</a
           >
@@ -99,6 +90,13 @@
     <div class="game-detail-grid">
       <!-- Left: Main Content -->
       <section class="game-main-content">
+         <div class="panel screenshots-panel">
+        <div class="panel-header">Screenshots</div>
+        <div class="screenshots-carousel">
+          <div class="carousel-slide"><img src="https://www.psu.com/wp/wp-content/uploads/2020/11/Marvels-Spider-Man-Remastered-PS5-Review.jpg" alt="Screenshot 1" /></div>
+          <div class="carousel-slide"><img src="https://cdn.mos.cms.futurecdn.net/MVtk9tuFQg3P9ji8cBbrN-1920-80.jpg" alt="Screenshot 2" /></div>
+          <!-- Add more .carousel-slide ... -->
+        </div>
         <h2 class="section-title">About Marvel’s Spider-Man 2</h2>
         <div class="game-desc">
           <p>
@@ -125,22 +123,50 @@
         </div>
       </section>
 
-      <!-- Right Sidebar: System Requirements -->
-      <aside class="game-sidebar">
-        <div class="sysreq-box">
-          <h3>System Requirements</h3>
-          <ul>
-            <li><b>OS:</b> Windows 10 or Newer</li>
-            <li><b>Processor:</b> Intel Core i5-8400 or AMD Ryzen 5 3600</li>
-            <li><b>Memory:</b> 16 GB RAM</li>
-            <li><b>Graphics:</b> NVIDIA RTX 3060 or AMD RX 5700</li>
-            <li><b>Storage:</b> 140 GB available space</li>
-          </ul>
-        </div>
-      </aside>
+<aside class="game-sidebar">
+  <div class="sysreq-box">
+    <h3>System Requirements</h3>
+    <ul class="sys-req-list">
+      <li><b>OS:</b> Windows 10 or Newer</li>
+      <li><b>Processor:</b> Intel Core i5-8400 or AMD Ryzen 5 3600</li>
+      <li><b>Memory:</b> 16 GB RAM</li>
+      <li><b>Graphics:</b> NVIDIA RTX 3060 or AMD RX 5700</li>
+      <li><b>Storage:</b> 140 GB available space</li>
+    </ul>
+
+    <h3>Available Games</h3>
+    <ul class="game-list">
+      <li>
+        <img src="..." alt="Halo Infinite" />
+        <span>Halo Infinite</span>
+        <span class="free-tag">Free</span>
+      </li>
+      <li>
+        <img src="..." alt="COD Warzone" />
+        <span>Call of Duty®: Warzone™</span>
+        <span class="owned-tag">Owned</span>
+      </li>
+      <li>
+        <img src="..." alt="Modern Combat 5" />
+        <span>Modern Combat 5: Blackout</span>
+        <span class="owned-tag">Owned</span>
+      </li>
+      <li>
+        <img src="..." alt="Asphalt Legends" />
+        <span>Asphalt Legends</span>
+      </li>
+    </ul>
+  </div>
+</aside>
     </div>
   </main>
 
   <script src="script.js"></script>
+  <!-- Screenshot modal overlay -->
+<div id="shot-modal" class="shot-modal" tabindex="-1" aria-label="Screenshot viewer">
+  <span class="shot-modal-close" id="shot-modal-close" aria-label="Close screenshot">&times;</span>
+  <img id="shot-modal-img" alt="Enlarged screenshot" />
+</div>
+
 </body>
 </html>
